@@ -1,0 +1,46 @@
+/*****************************************************************************
+
+		Copyright (c) 1984 - 2000 Prolog Development Center A/S
+
+ Project:  
+ FileName: CH02E02.PRO
+ Purpose: 
+ Written by: PDC
+ Modifyed by: Eugene Akimov
+ Comments: 
+******************************************************************************/
+
+predicates
+ nondeterm beli(symbol,symbol) /* tipe data symbol beli itu input & output */ 
+ nondeterm nama(symbol) /* tipe data symbol nama itu input */
+ nondeterm sepatu(symbol)  /* tipe data symbol Sepatu itu output */
+ nondeterm loved(symbol,symbol) /* tipe data symbol loved itu input & output */
+ nondeterm stok(symbol) /* tipe data symbol stok itu  output */
+
+clauses
+  beli(A,B):- /* jika maka aturan A dan B termasuk di variabel Beli  */ 
+	nama(A), /* variabel beli nama    */
+	sepatu(B), /* variabel sepatu  */
+	loved(A,B), /*  */
+   	stok(B). /*  */
+
+  nama(nopal). /* nama orang */
+  nama(lucky).
+  nama(sajid).
+  nama(andre).
+
+  sepatu(nike). /* nama sepatu */
+  sepatu(adidas).
+  sepatu(bata).
+
+  loved(nopal, nike). /* nopal loved sepatu nike */
+  loved(nopal, adidas). /* nopal loved sepatu adidas */
+  loved(lucky, nike). /* lucky loved sepatu nike */
+  loved(sajid, bata). /* sajid loved sepatu bata */
+  loved(andre, nike). /* andre loved sepatu nike */
+  
+  stok(nike).  /* stok tersedia */
+  stok(adidas).
+  
+goal
+  beli(Siapa,nike)./* (pernyataan)  siapa yang akan membeli sepatu Nike ??*/ 

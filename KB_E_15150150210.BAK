@@ -1,0 +1,34 @@
+predicates
+nondeterm  beli(symbol,symbol)
+nondeterm  nama(symbol) 
+nondeterm  sepatu(symbol) 
+nondeterm  loved(symbol,symbol)
+nondeterm  stok(symbol)
+
+clauses
+  beli(X,Y):-
+	nsms(X),
+	sepatu(Y),
+	loved(X,Y),
+   	stok(Y).
+
+  nama(lucky).
+  nama(saputra).
+  nama(andre).
+  nama(sajid).
+
+  sepatu(adidas).
+  sepatu(nike).
+  sepatu(bata).
+
+  loved(lucky, adidas).
+  loved(andre, nike).
+  loved(saputra, bata).
+  loved(sajid, adidas).
+  loved(sajid, nike).
+
+  stok(adidas).
+  stok(nike).
+  
+goal
+  beli(Apa,nike).
